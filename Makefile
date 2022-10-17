@@ -1,4 +1,4 @@
-NAME = minishell
+NAME = pretzelsh
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -Iincludes -g #-fsanitize=address
 
@@ -43,7 +43,7 @@ objs/%.o : %.c Makefile $(HEADERS)
 	@$(CC) $(CFLAGS) -c  $(READCLUDE) $< -o $@ 
 	@$(eval PERCENT=$(shell expr $(INDEX) '*' 100 / $(NB)))
 	@$(eval PROGRESS=$(shell expr $(INDEX) '*' 30 / $(NB)))
-	@printf "\r\033[38;5;87mMAKE MINISHELL %2d%%\033[0m \033[48;5;32m%*s\033[0m %s\033[K" $(PERCENT) $(PROGRESS) "" $(notdir $@)
+	@printf "\r\033[38;5;87mMAKE PRETZELSH %2d%%\033[0m \033[48;5;32m%*s\033[0m %s\033[K" $(PERCENT) $(PROGRESS) "" $(notdir $@)
 	@$(eval INDEX=$(shell echo $$(($(INDEX)+1))))
 
 all: $(OBJDIR) $(NAME)
@@ -53,7 +53,7 @@ $(OBJDIR):
 
 $(NAME) : $(OBJS)
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJS) $(READLINE)
-	@printf "\r\033[38;5;82mMINISHELL DONE\033[0m\033[K\n"
+	@printf "\r\033[38;5;82mPRETZELSH DONE\033[0m\033[K\n"
 
 clean:
 	@rm -rf $(OBJS)
