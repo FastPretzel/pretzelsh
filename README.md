@@ -48,5 +48,5 @@ Run the following commands in Terminal:
 > make
 
 # to run
-> ./minishell 
+> ./pretzelsh 
 ```
